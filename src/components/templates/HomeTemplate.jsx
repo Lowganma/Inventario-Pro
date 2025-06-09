@@ -3,7 +3,7 @@ import styled from "styled-components";
 export function HomeTemplate() {
   return (
     <Container>
-      <h1>Homesadasd
+      <h1>Home
       </h1>
     </Container>
   );
