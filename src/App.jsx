@@ -17,7 +17,7 @@ function App() {
       <ThemeContext.Provider value={{theme, setTheme }}>
         <ThemeProvider theme={themeStyles}>
           <AuthContextProvider>  
-            <Container classname ={sidebarOpen?"active":""}>
+            <Container className ={sidebarOpen?"active":""}>
               <section className="ContenSidebar">
                 <Sidebar state={sidebarOpen} setState={setSidebarOpen} />
                   </section>

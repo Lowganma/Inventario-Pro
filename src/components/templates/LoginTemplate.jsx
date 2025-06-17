@@ -1,8 +1,9 @@
 import styled from "styled-components";
 export function LoginTemplate() {
     return (<Container>
-        <h1>"Componente"</h1>
+        <h1>"login"</h1>
         </Container>);
     }
     const Container = styled.div`
+    height:100vh;
     `
