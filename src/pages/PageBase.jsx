@@ -1,5 +1,5 @@
 import { HomeTemplate } from "../index"
 
-export function Login() {
+export function PageBase() {
     return (<HomeTemplate/>)
 }

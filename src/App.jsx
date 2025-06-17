@@ -18,7 +18,7 @@ function App() {
         <ThemeProvider theme={themeStyles}>
           <AuthContextProvider>  
             <Container className ={sidebarOpen?"active":""}>
-              <section className="ContenSidebar">
+              <section className="ContenSidebar">s
                 <Sidebar state={sidebarOpen} setState={setSidebarOpen} />
                   </section>
               <section className="ContenMenuambur"><Menuhambur/></section>
