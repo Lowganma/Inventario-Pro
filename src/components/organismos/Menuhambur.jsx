@@ -31,9 +31,8 @@ export function Menuhambur() {
         ))}
         <Divider />
         {SecondarylinksArray.map(({ icon, label, to }) => (
-          <div nClick={() => setClick(!click)}
-            className="LinkContainer"
-            key={label}
+          <div className="LinkContainer"
+            key={label} onClick={() => setClick(!click)}
           >
             <NavLink
               to={to}
@@ -58,7 +57,7 @@ const NavBar = styled.nav`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 100vh;`
+        height: 100vh`;
 
 const HamburguerMenu = styled.span`
 position: fixed;
@@ -118,46 +117,55 @@ z-index: 1000;
 #bar1,#bar3 {
   width: 70%;
 }
-`
+`;
 
 const Menu = styled.div`
+  padding-top: 50px;
   display: flex;
-  alin-items: center;
+  align-items: center;
   list-style: none;
   z-index: 10;
   flex-direction: column;
   position: fixed;
   justify-content: center;
-  top: 0; 
-  left: 0;
+  top: 0;
+  left: 0; 
   right: 0;
   bottom: 0;
-  width: 100vw;
-  background: ${(props) =>`rgba(${props.theme.bgAlpha}, 0.85)`};
+  width: 100%;
+  background-color: ${(props) => `rgba(${props.theme.bodyRgb}, 0.85)`}; // ✅ corregido $(...)
   backdrop-filter: blur(3px);
-  transform: ${({ $click }) => ($click === "true" ? "translateY(0)" : "translateY(1000%)")};
-    transition: transform 0.3s ease;
-    .LinkContainer {
-    &:hover {
-      background: ${(props) => props.theme.bgAlpha};
-    }
-    .Links {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: ${(props) => props.theme.text};
-    height: 80px;
-    .Linkicon {
-        padding: ${() => v.smSpacing} ${() => v.mdSpacing};
-        display: flex;
-        svg {
-            font-size: 25px;
-        }
-        }
+  transform: ${(props) => 
+    props.$click == "true" ? "translateY(0)" : "translateY(1000%)"};
+  transition: all 0.3s ease;
 
-  @media 
+  .LinkContainer {
+    width: 100%;
+
+    .Links {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: ${(props) => props.theme.text};  // ✅ color SIEMPRE visible
+      height: 80px;
+      padding: ${v.smSpacing} ${v.mdSpacing};
+
+      .Linkicon {
+        display: flex;
+
+        svg {
+          font-size: 25px;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: ${(props) => props.theme.bgAlpha}; // ✅ solo cambia fondo
+    }
+  }
 `;
+
 const Divider = styled.div`
   height: 1px;
   width: 100%;

@@ -22,7 +22,8 @@ function App() {
         <ThemeProvider theme={themeStyles}>
           <AuthContextProvider>
             {
-             pathname =="/login"?(<Login/>):( <Container className ={sidebarOpen?"active":""}>
+             pathname =="/login"?(<Login/>):( 
+             <Container className ={sidebarOpen?"active":""}>
               <section className="ContenSidebar">
                 <Sidebar state={sidebarOpen} setState={()=> setSidebarOpen(!sidebarOpen)} />
                   </section>
