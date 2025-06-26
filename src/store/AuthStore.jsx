@@ -3,7 +3,7 @@ import {create} from 'zustand';
 import {supabase} from "../index"
 
 export const useAuthStore = create((set,get ) => ({
-    singWhithEmail: async (p) => {
+    signInWithEmail: async (p) => {
         const { data, error } = await supabase.auth.signInWithPassword({ 
             email: p.correo ,
             password: p.pass
@@ -11,6 +11,7 @@ export const useAuthStore = create((set,get ) => ({
             if (error) {
                 return null;
             }
+            return data.user;
     },
     signOut: async () => {
         const { error } = await supabase.auth.signOut();

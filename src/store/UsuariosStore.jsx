@@ -3,7 +3,7 @@ import { InsertarUsuarios,supabase } from "../index";
 
 export const useUsuariosStore = create((set, get) => ({
     InsertarUsuarioAdmin: async (p) => {
-        const {data,error} = await supabase.auth.SingUp({
+        const {data,error} = await supabase.auth.signUp({
             email: p.correo,
             password: p.pass
         });

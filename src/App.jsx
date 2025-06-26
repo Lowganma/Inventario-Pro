@@ -22,7 +22,7 @@ function App() {
         <ThemeProvider theme={themeStyles}>
           <AuthContextProvider>
             {
-             pathname =="/login"?(<Login/>):( 
+             pathname =="/login"?( 
              <Container className ={sidebarOpen?"active":""}>
               <section className="ContenSidebar">
                 <Sidebar state={sidebarOpen} setState={()=> setSidebarOpen(!sidebarOpen)} />
@@ -32,7 +32,7 @@ function App() {
               <MyRoutes />
               </section>
             </Container>
-              
+              ):(<Login/>
             )
             }  
            
@@ -52,8 +52,7 @@ const Container = styled.main`
   }
   .ContenMenuambur {
     display: block;
-    position: adsolute;
-    left: 20px;
+    position: fixed;
   }
 
 @media ${Device.tablet} { 
@@ -62,7 +61,8 @@ const Container = styled.main`
   grid-template-columns: 220fr 1fr;
   }
   .ContenSidebar {
-    display: initial
+    display: flex;
+    position: fixed; //este es el valor que hace que desaparezca el fondo invisible// 
     }
   .ContenMenuambur {
     display: none;
