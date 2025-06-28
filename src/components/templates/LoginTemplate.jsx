@@ -1,5 +1,6 @@
+import { use, useEffect } from "react";
 import styled from "styled-components";
-import { Btnsave, v, useAuthStore, InputText, FooterLogin } from "../../index";
+import { Btnsave, v, useAuthStore, InputText, FooterLogin, RegistrarAdmin } from "../../index";
 import { Device } from "../../styles/breackpoints";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +11,10 @@ import { MdOutlineInfo } from "react-icons/md";
 import { ThemeContext } from "../../App";
 export function LoginTemplate() {
   const { setTheme } = useContext(ThemeContext);
-  setTheme("light");
+  useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
+  
   const { signInWithEmail } = useAuthStore();
   const [state, setState] = useState(false);
   const [stateInicio, setStateInicio] = useState(false);
@@ -44,6 +48,9 @@ export function LoginTemplate() {
 
       <div className="contentCard">
         <div className="card">
+          {
+            state && <RegistrarAdmin setState={()=>setState(!state)}/>
+          }
           <Titulo>StockPRO</Titulo>
           {stateInicio && (
             <TextoStateInicio>datos incorrectos</TextoStateInicio>

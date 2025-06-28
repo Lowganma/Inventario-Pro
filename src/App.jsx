@@ -1,12 +1,10 @@
-// will del futuro, tienes los valores booleanos del pathname invertidos
-//  porque de la manera del tutorial no funciona, ojito si te da problemas mas adelante
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import styled, { ThemeProvider } from 'styled-components'
 import { AuthContextProvider, MyRoutes, Light, Dark, Sidebar,Menuhambur, Login } from './index'
 import { useState,createContext } from 'react';
 import { Device }  from './styles/breackpoints';
-import {useLocation} from 'react-router-dom';
+import {useLocation} from 'react-router-dom'; // asdasddas
 
 export const ThemeContext = createContext(null);
 
@@ -22,7 +20,7 @@ function App() {
         <ThemeProvider theme={themeStyles}>
           <AuthContextProvider>
             {
-             pathname =="/login"?( 
+             pathname =="/login"?(<Login/>):( 
              <Container className ={sidebarOpen?"active":""}>
               <section className="ContenSidebar">
                 <Sidebar state={sidebarOpen} setState={()=> setSidebarOpen(!sidebarOpen)} />
@@ -32,7 +30,7 @@ function App() {
               <MyRoutes />
               </section>
             </Container>
-              ):(<Login/>
+              
             )
             }  
            
@@ -43,7 +41,7 @@ function App() {
     </>
   )
 }
-const Container = styled.main`
+const Container = styled.div`
   display:grid;
   grid-template-columns: 1fr;
   background-color: ${props => props.theme.bgtotal};
@@ -73,5 +71,7 @@ const Container = styled.main`
     @media ${Device.tablet} {
       grid-column: 2;
     }
+    }
+  }
   `;
 export default App
