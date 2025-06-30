@@ -42,16 +42,14 @@ function App() {
   )
 }
 const Container = styled.div`
-  display:grid;
+  display:relative;
   grid-template-columns: 1fr;
   background-color: ${props => props.theme.bgtotal};
   .ContenSidebar {
-  
-  display: none;
-    
+  display: none;  
   }
   .ContenMenuambur {
-    display: inline;
+    display: block;
     position: fixed;
   }
 
@@ -61,7 +59,7 @@ const Container = styled.div`
   grid-template-columns: 220fr 1fr;
   }
   .ContenSidebar {
-    display: inline;
+    display: flex;
     position: fixed; //este es el valor que hace que desaparezca el fondo invisible// 
     }
   .ContenMenuambur {
