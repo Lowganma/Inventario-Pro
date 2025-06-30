@@ -171,6 +171,7 @@ const Container = styled.div`
   }
 `;
 const Main = styled.div`
+z-index: 1002;
   .Sidebarbutton {
     position: fixed;
     top: 70px;
@@ -190,7 +191,6 @@ const Main = styled.div`
     transform: ${({ $isopen }) =>
       $isopen==="true" ? `translateX(162px) rotate(3.142rad)` : `initial`};
     color: ${(props) => props.theme.text};
-    
   }
 `;
 const Divider = styled.div`
