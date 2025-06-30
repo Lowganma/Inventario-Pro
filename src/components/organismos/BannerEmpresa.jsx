@@ -12,7 +12,10 @@ export function BannerEmpresa() {
                 StockPRO te mantiene siempre informado
             </div>
             <ContentCards>
-                <CardDatosEmpresa/>
+                <CardDatosEmpresa titulo="Moneda"
+                valor ="$/." />
+                <CardDatosEmpresa titulo="Usuarios"
+                valor ="10" />
             </ContentCards>
         </div>
             </Container>);

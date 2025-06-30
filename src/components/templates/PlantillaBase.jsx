@@ -1,25 +1,24 @@
 import styled from "styled-components";
-import { BannerEmpresa, Header,Title } from "../../index";
+import { Header } from "../../index";
 import { useState } from "react";
-export function HomeTemplate() {
+export function PlantillaBase() {
   const [state,setState] = useState(false);
   return (
     <Container>
       <header className="header">
         <Header
-            stateConfig={{state:state, setState:() => 
-              setState(!state)}}
+            stateConfig={{state:state, setState:() => setState
+              (!state)}}
              />
         </header>
         <section className="area1">
-          <Title>tu empresa</Title>
 
         </section>
         <section className="area2">
 
         </section>
         <section className="main">
-              <BannerEmpresa/>
+
         </section>
     </Container>)
   ;
@@ -46,8 +45,7 @@ grid-template:
  grid-area: area1;
  background-color : rgba(229,67,26,0.14);
  display: flex;
-justify-content: end;
-  
+  justify-content: center;
 }
 .area2{
   grid-area: area2;

@@ -20,7 +20,7 @@ function App() {
         <ThemeProvider theme={themeStyles}>
           <AuthContextProvider>
             {
-             pathname =="/login"?(<Login/>):( 
+             pathname =="/Login"?(<Login/>):( 
              <Container className ={sidebarOpen?"active":""}>
               <section className="ContenSidebar">
                 <Sidebar state={sidebarOpen} setState={()=> setSidebarOpen(!sidebarOpen)} />
@@ -46,10 +46,12 @@ const Container = styled.div`
   grid-template-columns: 1fr;
   background-color: ${props => props.theme.bgtotal};
   .ContenSidebar {
-  display: none;  
+  
+  display: none;
+    
   }
   .ContenMenuambur {
-    display: block;
+    display: inline;
     position: fixed;
   }
 
@@ -59,7 +61,7 @@ const Container = styled.div`
   grid-template-columns: 220fr 1fr;
   }
   .ContenSidebar {
-    display: flex;
+    display: inline;
     position: fixed; //este es el valor que hace que desaparezca el fondo invisible// 
     }
   .ContenMenuambur {
