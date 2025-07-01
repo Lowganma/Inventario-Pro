@@ -15,9 +15,9 @@ export function CardDatosEmpresa({titulo,valor,img}) {
             </div>
         </Container>)};
 const Container = styled.div`
-display: flex;
-justify-content: flex-end;
+ z-index:1 ;
 .card{
+   
     width: 190px;
     background: #fffefe;
     padding: 1rem;
