@@ -24,7 +24,7 @@ export function MyRoutes() {
   return (
         <Routes>
           <Route path="/Login" element={<Login/>} />
-         <Route element={<ProtectedRoute user={user} redirectTo="/login" />}
+         <Route element={<ProtectedRoute user={user} redirectTo="/Login" />}
           >
            <Route path="/" element={<Home/>} />
           </Route>
