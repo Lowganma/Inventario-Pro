@@ -70,7 +70,7 @@ function App() {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <ThemeProvider theme={themeStyles}>
         <AuthContextProvider>
-          {pathname.toLowerCase() === "/login" ? (
+          {pathname.toLowerCase() == "/login" ? (
             <Login />
           ) : (
             <Container $open={sidebarOpen} className={sidebarOpen ? 'active' : ''}>
