@@ -24,11 +24,11 @@ export function MyRoutes() {
   return (
         <Routes>
           <Route path="/Login" element={<Login/>} />
-         <Route element={<ProtectedRoute user ={user} redirectTo ="/
-         Login" />}
+         <Route element={<ProtectedRoute user={user} redirectTo="/login" />}
           >
            <Route path="/" element={<Home/>} />
           </Route>
+          
         </Routes>
   );
 }
