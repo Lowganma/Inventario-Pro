@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { InsertarUsuarios, supabase } from "../index";
+import { InsertarUsuarios, MostrarUsuarios, supabase } from "../index";
 
 export const useUsuariosStore = create((set, get) => ({
   InsertarUsuarioAdmin: async (p) => {
@@ -47,4 +47,10 @@ export const useUsuariosStore = create((set, get) => ({
 
     return { ok: true, data: insert.data };
   },
+  idusuario:0,
+  mostrarUsuarios: async()=>{
+    const response = await MostrarUsuarios();
+    set({idusuario:response.id});
+    return response;
+  }
 }));
