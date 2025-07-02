@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { v } from "../../index";
+import { useEmpresaStore, v } from "../../index";
 import { CardDatosEmpresa } from "../moleculas/CardDatosEmpresa";
 
 /**
@@ -8,19 +8,20 @@ import { CardDatosEmpresa } from "../moleculas/CardDatosEmpresa";
  * los modificadores `group-hover:` sobre el <svg>.
  */
 export function BannerEmpresa() {
+  const {dataempresa,contadorusuario} = useEmpresaStore();
   return (
     <Container className="group">
       {/* Texto + tarjetas */}
       <div className="content-wrapper-context">
-        <span className="Titulo">
+        <span className="titulo">
           {<v.iconoempresa />}
-          Nombre de empresa
+          {dataempresa.empresa?.nombre}
         </span>
         <div className="content-text">StockPRO te mantiene siempre informado</div>
 
         <ContentCards>
-          <CardDatosEmpresa titulo="Moneda" valor="$/." />
-          <CardDatosEmpresa titulo="Usuarios" valor="100" />
+          <CardDatosEmpresa titulo="Moneda" valor={dataempresa.empresa?.simbolomoneda} />
+          <CardDatosEmpresa titulo="Usuarios" valor={contadorusuario} />
         </ContentCards>
       </div>
 
