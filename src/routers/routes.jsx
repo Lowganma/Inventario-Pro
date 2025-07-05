@@ -8,6 +8,7 @@ import {
   SpinnerLoader,
   ErrorMolecula,
   useEmpresaStore,
+  configuracion,
 } from "../index";
 import { useQuery } from "@tanstack/react-query";
 
@@ -42,6 +43,7 @@ export function MyRoutes() {
       {/* privadas */}
       <Route element={<ProtectedRoute user={user} redirectTo="/login" />}>
         <Route path="/" element={<Home />} />
+        <Route path="/configurar" element={<Configuracion/>} />
       </Route>
     </Routes>
   );
