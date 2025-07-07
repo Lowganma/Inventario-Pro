@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import {
   Home,
+  Configuracion,
   ProtectedRoute,
   UserAuth,
   Login,
@@ -8,7 +9,6 @@ import {
   SpinnerLoader,
   ErrorMolecula,
   useEmpresaStore,
-  configuracion,
 } from "../index";
 import { useQuery } from "@tanstack/react-query";
 

@@ -1,4 +1,4 @@
 import { ConfiguracionTemplate } from "../index"
-export function configuracion() {
+export function Configuracion() {
     return (<ConfiguracionTemplate/>)
 }
