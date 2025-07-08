@@ -10,7 +10,7 @@ export function ConfiguracionTemplate() {
       <div id="cards">
         {DataModulosConfiguracion.map((item, index) => {
           return (
-            <Link to={item.state?item.link:""} className={item.state?"card": "card false"} key={index}>
+            <Link to={item.link} className={"card"} key={index}>
 
             
               <div className="card-content">
@@ -139,8 +139,9 @@ const Container = styled.div`
     flex-grow: 1;
     inset: 1px;
     padding: 10px;
-    position: relative;
+    position: Flex;
     z-index: 2;
+    align-items: center ; 
   }
 
   h1,

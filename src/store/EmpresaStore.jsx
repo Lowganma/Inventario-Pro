@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { contarusuariosXempresa, MostrarEmpresa, supabase } from "../index";
-
 export const useEmpresaStore = create((set, get) => ({
   contadorusuario:0,
   dataempresa:{},
