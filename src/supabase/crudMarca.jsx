@@ -15,7 +15,7 @@ export async function InsertarMarca(p) {
 
     }
 }
-export async function MostarMarca(p) {
+export async function MostrarMarca(p) {
     
     const { data } = await supabase
     .from("marca")
