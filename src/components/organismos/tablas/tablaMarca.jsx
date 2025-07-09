@@ -1,43 +1,62 @@
+import {
+    useReactTable,
+    flexRender,
+    getCoreRowModel,
+    getFilteredRowModel,
+    getPaginationRowModel,
+    getSortedRowModel,
+} from "@tanstack/react-table"
 import styled from "styled-components";
-import {getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable} from "@tanstack/react-table"
-export function TablaMarca({data}) {
-    const columns=[
-        {
 
-        }
-    ]
+export function TablaMarca({data}) {
+    const columns=[{
+        accessorKey: "descripcion",
+        header: "Descripcion",
+        cell:(info)=> <span>{info.getValue()}</span> 
+    }];
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
+        getSortedRowModel: getSortedRowModel(),
         getPaginationRowModel:getPaginationRowModel(),
         
     });
-    return (<Container>
+    return (
+    <Container>
         <table>
             <thead>
-                <tr>
-                    <th>Total Valor</th>
-                    <th>Cantidad</th>
-                    <th>Stock</th>
-                </tr>
+                {
+                    table.getHeaderGroups().map((headerGroup)=>(
+                        <tr key={headerGroup.id}>
+                            {headerGroup.headers.map((header)=>(
+                                <th key={header.id}>
+                                    {header.column.columnDef.header}
+                                </th>
+                            ))}
+                        </tr>
+                    ))
+                }
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        $.12
-                    </td>
-                    <td>
-                       5
-                    </td>
-                    <td>
-                        100
-                    </td>
+               {table.getRowModel().rows.map((item)=>(
+                <tr key={item.id}>
+                    {
+                        item.getVisibleCells().map((cell)=>(
+                            <td key={cell.id}>
+                                {
+                                    flexRender(cell.column.columnDef.cell,cell.getContext())
+                                }
+
+                            </td>
+                        ))
+                    }
+
                 </tr>
+               ))}
             </tbody>
         </table>
     </Container>);
 }
-const Container = styled.div`
-`
+const Container = styled.div``
