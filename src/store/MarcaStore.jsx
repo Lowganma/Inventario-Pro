@@ -25,7 +25,7 @@ export const useMarcaStore = create((set,get)=>({
         set(mostrarMarca(parametros));
     },
     eliminarMarca: async (p) => {
-        await EliminarMarca();
+        await EliminarMarca(p);
         const {mostrarMarca} = get();
         const {parametros}= get();
         set(mostrarMarca(parametros));

@@ -19,7 +19,7 @@ export async function MostrarMarca(p) {
     
     const { data } = await supabase
     .from("marca")
-    .select(`descripcion,empresa(id,nombre,simbolomoneda)`)
+    .select(`id,descripcion,empresa(id,nombre,simbolomoneda)`)
     .eq("id_empresa", p.id_empresa)
     .order("id", { ascending: true });
     return data;
