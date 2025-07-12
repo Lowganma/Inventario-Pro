@@ -1,4 +1,4 @@
-import { HomeTemplate } from "../index"
+import { HomeTemplate } from "../index";
 export function PageBase() {
-    return (<HomeTemplate1/>)
+  return (<HomeTemplate/>);
 }

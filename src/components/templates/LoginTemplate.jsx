@@ -1,8 +1,7 @@
-import { use, useEffect } from "react";
 import styled from "styled-components";
 import { Btnsave, v, useAuthStore, InputText, FooterLogin, RegistrarAdmin } from "../../index";
 import { Device } from "../../styles/breackpoints";
-import { useContext, useState } from "react";
+import { useContext, useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import carrito from "../../assets/carrito.svg";
@@ -11,10 +10,9 @@ import { MdOutlineInfo } from "react-icons/md";
 import { ThemeContext } from "../../App";
 export function LoginTemplate() {
   const { setTheme } = useContext(ThemeContext);
+
   useEffect(() => {
-    setTheme("light");
-  }, [setTheme]);
-  
+    setTheme("light");  }, [setTheme]);
   const { signInWithEmail } = useAuthStore();
   const [state, setState] = useState(false);
   const [stateInicio, setStateInicio] = useState(false);
@@ -37,7 +35,7 @@ export function LoginTemplate() {
   }
 
   return (
-    <Container>
+    <Container >
       <div className="contentLogo">
         <img src={logo}></img>
         <span>StockPRO</span>
@@ -48,9 +46,9 @@ export function LoginTemplate() {
 
       <div className="contentCard">
         <div className="card">
-          {
-            state && <RegistrarAdmin setState={()=>setState(!state)}/>
-          }
+       {
+        state && <RegistrarAdmin setState={()=>setState(!state)}/>
+       }
           <Titulo>StockPRO</Titulo>
           {stateInicio && (
             <TextoStateInicio>datos incorrectos</TextoStateInicio>

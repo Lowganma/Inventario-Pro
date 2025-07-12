@@ -3,22 +3,16 @@ import fondocuadros from "../../assets/fondocuadros.svg";
 import {  Link } from "react-router-dom";
 import { DataModulosConfiguracion } from "../../utils/dataEstatica";
 export function ConfiguracionTemplate() {
-  
   return (
-    <Container>
-     
+    <Container>    
       <div id="cards">
         {DataModulosConfiguracion.map((item, index) => {
           return (
-            <Link to={item.link} className={"card"} key={index}>
-
-            
+            <Link to={item.link} className={item.state?"card": "card false"} key={index}>
               <div className="card-content">
                 <div className="card-image">
                   <img src={item.icono} />
                 </div>
-       
-
                 <div className="card-info-wrapper">
                   <div className="card-info">
                     <i className="fa-duotone fa-unicorn"></i>
@@ -139,9 +133,8 @@ const Container = styled.div`
     flex-grow: 1;
     inset: 1px;
     padding: 10px;
-    position: Flex;
+    position: absolute;
     z-index: 2;
-    align-items: center ; 
   }
 
   h1,
@@ -258,3 +251,4 @@ const Container = styled.div`
     bottom: 10px;
   }
 `;
+

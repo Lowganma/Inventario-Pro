@@ -8,7 +8,6 @@ import {
 } from "../../../index";
 import {v} from "../../../styles/variables"
 import { NavLink } from "react-router-dom";
-
 export function Sidebar({ state, setState }) {
 
   return (
@@ -171,7 +170,6 @@ const Container = styled.div`
   }
 `;
 const Main = styled.div`
-z-index: 1002;
   .Sidebarbutton {
     position: fixed;
     top: 70px;

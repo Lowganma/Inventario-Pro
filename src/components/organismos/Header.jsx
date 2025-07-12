@@ -5,7 +5,6 @@ export function Header({ stateConfig }) {
   const { user } = UserAuth();
   const funcionXtipo = async (p) => {
     if (p.tipo === "cerrarsesion") {
-     
       await signOut();
     }
   };

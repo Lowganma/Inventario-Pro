@@ -1,51 +1,41 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import {
-  Home,
   Configuracion,
-  ProtectedRoute,
-  UserAuth,
-  Login,
-  useUsuariosStore,
-  SpinnerLoader,
   ErrorMolecula,
-  useEmpresaStore,
+  Home,
+  Login,
   Marca,
+  ProtectedRoute,
+  SpinnerLoader,
+  UserAuth,
+  useEmpresaStore,
+  useUsuariosStore,
 } from "../index";
 import { useQuery } from "@tanstack/react-query";
 
 export function MyRoutes() {
-  const { user, loading } = UserAuth();                 // 🆕
-  const { mostrarUsuarios, idusuario } = useUsuariosStore();
-  const { mostrarEmpresa } = useEmpresaStore();
-
-  /* -------- Queries -------- */
-  const { data: usuarios, isLoading, error } = useQuery({
+  const { user } = UserAuth();
+  const { mostrarUsuarios,idusuario } = useUsuariosStore();
+  const {mostrarEmpresa} = useEmpresaStore()
+  const { data:datausuarios, isLoading, error } = useQuery({
     queryKey: ["mostrar usuarios"],
     queryFn: mostrarUsuarios,
-    enabled: !!user && !loading,                       // solo si hay user
   });
+  const {data:dataempresa}=useQuery({queryKey:["mostrar empresa"],queryFn:()=>mostrarEmpresa({idusaurio:idusuario}),enabled:!!datausuarios})
 
-  const { data: empresa } = useQuery({
-    queryKey: ["mostrar empresa"],
-    queryFn: () => mostrarEmpresa({ idusuario }),
-    enabled: !!usuarios && !!user && !loading,         // idem
-  });
-
-  /* -------- Loaders / errores -------- */
-  if (loading || isLoading) return <SpinnerLoader />;  // sesión o query
-  if (error)        return <ErrorMolecula mensaje={error.message} />;
-
-  /* -------- Rutas -------- */
+  if (isLoading){
+    return <SpinnerLoader/>
+  }
+  if(error){
+    return <ErrorMolecula mensaje={error.message}/>
+  }
   return (
     <Routes>
-      {/* pública */}
       <Route path="/login" element={<Login />} />
-
-      {/* privadas */}
       <Route element={<ProtectedRoute user={user} redirectTo="/login" />}>
         <Route path="/" element={<Home />} />
-        <Route path="/configurar" element={<Configuracion/>} />
-        <Route path="/configurar/marca" element={<Marca/>} />
+        <Route path="/configurar" element={<Configuracion />} />
+        <Route path="/configurar/marca" element={<Marca />} />
       </Route>
     </Routes>
   );
